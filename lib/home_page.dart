@@ -75,9 +75,9 @@ class HomePageState extends State<HomePage> {
         actions: [CustomSwitch()],
       ),
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
         child: Container(
+          width: double.infinity,
+          height: double.infinity,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
