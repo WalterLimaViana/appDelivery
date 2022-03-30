@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_curso/app_controller.dart';
 
@@ -23,7 +24,29 @@ class AppWidget extends StatelessWidget {
           //Instanciando as rotas:
           initialRoute: '/',
           routes: {
-            '/': (context) => LoginPage(),
+            '/': (context) => AnimatedSplashScreen(
+                splash: Icons.pets,
+                duration: 3000,
+                splashTransition: SplashTransition.rotationTransition,
+                backgroundColor: Colors.lightBlue,
+                // Center(
+                //   child: Column(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Container(
+                //         height: 100,
+                //         width: 100,
+                //         color: Colors.blueAccent,
+                //       ),
+                //       Container(
+                //           child: Text('Splash Screen',
+                //               style: TextStyle(
+                //                   fontSize: 24, fontWeight: FontWeight.bold))),
+                //     ],
+                //   ),
+                // ),
+                nextScreen: LoginPage()),
+            '/login': (context) => LoginPage(),
             '/home': (context) => HomePage(),
             '/produtos': (context) => ProdutosPage(),
           },
