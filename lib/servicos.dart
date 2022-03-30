@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ProdutosPage extends StatefulWidget {
-  const ProdutosPage({Key? key}) : super(key: key);
+class ServicosPage extends StatefulWidget {
+  const ServicosPage({Key? key}) : super(key: key);
 
   @override
-  State<ProdutosPage> createState() => _ProdutosPageState();
+  State<ServicosPage> createState() => _ServicosPageState();
 }
 
-class _ProdutosPageState extends State<ProdutosPage> {
+class _ServicosPageState extends State<ServicosPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,21 +45,21 @@ class _ProdutosPageState extends State<ProdutosPage> {
               leading: Icon(Icons.pets),
               title: Text('Produtos'),
               subtitle: Text('rações, acessórios'),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushNamed('/produtos');
+              },
             ),
             ListTile(
               leading: Icon(Icons.medical_services),
               title: Text('Serviços'),
               subtitle: Text('banho e tosa, fármacia'),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/servicos');
-              },
+              onTap: () {},
             ),
           ],
         ),
       ),
       appBar: AppBar(
-        title: Text('Produtos'),
+        title: Text('Serviços'),
       ),
     );
   }

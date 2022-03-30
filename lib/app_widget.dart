@@ -2,9 +2,11 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_curso/app_controller.dart';
 
+import 'categorias.dart';
 import 'home_page.dart';
 import 'login_page.dart';
 import 'produtos_page.dart';
+import 'servicos.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -49,6 +51,8 @@ class AppWidget extends StatelessWidget {
             '/login': (context) => LoginPage(),
             '/home': (context) => HomePage(),
             '/produtos': (context) => ProdutosPage(),
+            '/categorias': (context) => CategoriasPage(),
+            '/servicos': (context) => ServicosPage(),
           },
         );
       },

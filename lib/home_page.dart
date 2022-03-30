@@ -53,7 +53,9 @@ class HomePageState extends State<HomePage> {
                 leading: Icon(Icons.list),
                 title: Text('Categorias'),
                 subtitle: Text('lista'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushReplacementNamed('/categorias');
+                },
               ),
               ListTile(
                 leading: Icon(Icons.pets),
@@ -67,7 +69,9 @@ class HomePageState extends State<HomePage> {
                 leading: Icon(Icons.medical_services),
                 title: Text('Serviços'),
                 subtitle: Text('banho e tosa, fármacia'),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pushReplacementNamed('/servicos');
+                },
               ),
               ListTile(
                 leading: Icon(Icons.logout),
