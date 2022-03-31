@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:projeto_curso/app_controller.dart';
 
+import 'categorias.dart';
+import 'material_page.dart';
+import 'servicos.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() {
@@ -14,19 +18,16 @@ class HomePageState extends State<HomePage> {
   @override
   int counter = 0;
   bool isDarkTheme = false;
+  int _selectedIndex = 0;
+
+  get onTabTapped => null;
+  // final List<Widget> _telas = [
+  //   CategoriasPage(),
+  //   MateriaisPage(),
+  //   ServicosPage(),
+  // ];
+
   Widget build(BuildContext context) {
-    final one = Container(
-      margin: EdgeInsets.all(5),
-      height: 50,
-      child: Center(child: Text('One')),
-      color: Colors.amber,
-    );
-    final two = Container(
-      margin: EdgeInsets.all(5),
-      height: 50,
-      child: Center(child: Text('Two')),
-      color: Colors.pink,
-    );
     // TODO: implement build
     return Scaffold(
         drawer: Drawer(
@@ -50,30 +51,6 @@ class HomePageState extends State<HomePage> {
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.list),
-                title: Text('Categorias'),
-                subtitle: Text('lista'),
-                onTap: () {
-                  Navigator.of(context).pushReplacementNamed('/categorias');
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.pets),
-                title: Text('Produtos'),
-                subtitle: Text('rações, acessórios'),
-                onTap: () {
-                  Navigator.of(context).pushNamed('/produtos');
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.medical_services),
-                title: Text('Serviços'),
-                subtitle: Text('banho e tosa, fármacia'),
-                onTap: () {
-                  Navigator.of(context).pushReplacementNamed('/servicos');
-                },
-              ),
-              ListTile(
                 leading: Icon(Icons.logout),
                 title: Text('Sair'),
                 subtitle: Text('Finalizar Sessão'),
@@ -90,6 +67,19 @@ class HomePageState extends State<HomePage> {
           // O actions serve para colocar um icone dentro da AppBar
           actions: [CustomSwitch()],
         ),
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: onTabTapped,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.list),
+                label: 'Categorias',
+              ),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.pets), label: 'Produtos'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.medical_services_sharp), label: 'Serviços'),
+            ]),
         body: SafeArea(
             child: Column(children: [
           Container(
@@ -99,7 +89,8 @@ class HomePageState extends State<HomePage> {
             child: Text('Produtos Recomendados',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
           ),
-          Expanded(
+          SizedBox(
+            height: 270,
             child: ListView(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
@@ -267,6 +258,8 @@ class HomePageState extends State<HomePage> {
         ])));
   }
 }
+
+class ProdutosPage {}
 
 class CustomSwitch extends StatelessWidget {
   const CustomSwitch({Key? key}) : super(key: key);
