@@ -259,8 +259,6 @@ class HomePageState extends State<HomePage> {
   }
 }
 
-class ProdutosPage {}
-
 class CustomSwitch extends StatelessWidget {
   const CustomSwitch({Key? key}) : super(key: key);
 
